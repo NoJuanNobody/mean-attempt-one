@@ -1,5 +1,5 @@
 var express = require('express');
-var router = espress.Router();
+var router = express.Router();
 
 module.exports = function(passport){
 	router.get('/success', function(req, res){

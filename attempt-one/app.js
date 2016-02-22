@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var api = require('./routes/api');
 
-var authenticate = require('./routes/autenticate')(passport);
+var authenticate = require('./routes/authenticate')(passport);
 
 
 var app = express();
@@ -24,7 +24,7 @@ app.set('view engine', 'ejs');
 // -------------------
 app.use(logger('dev'));
 app.use(session({
-  secret: 'keyboard cat'
+  secret: 'keyboard-cat'
 }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -34,7 +34,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //this code registers the route handlers with express
-//app.use('/auth, authenticate);
+app.use('/auth', authenticate);
 app.use('/api', api);
 
 
@@ -45,6 +45,9 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+// initialize passport
+var initPassport = require('./passport-init');
+initPassport(passport);
 // error handlers
 
 // development error handler
@@ -69,7 +72,6 @@ app.use(function(err, req, res, next) {
   });
 });
 
-var initPassport = require('./passport-init');
-initPassport(passport);
+
 
 module.exports = app;

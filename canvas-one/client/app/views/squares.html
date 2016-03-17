@@ -1,0 +1,28 @@
+<div ng-controller="SquaresCtrl as squares">
+	<button class="btn btn-danger" ng-click="squares.start(squares.canvas)">render canvas</button>
+	<table class="table table-striped" >
+		<thead>
+			<th>ID</th>
+			<th>x,y</th>
+			<th>color</th>
+			<th>width,height</th>
+			<!-- <th>render</th> -->
+		</thead>
+		<tbody>
+			
+			<tr ng-repeat="square in squares.square">
+				<td><a href="#/squares/edit/{{square._id}}">{{square._id}}</a></td>
+				<td>{{square.left}},{{square.top}}</td>
+				<td>{{square.fill}}</td>
+				<td>{{square.width}},{{square.height}}</td>
+				<td><button class="btn btn-primary" ng-click="squares.renderSquare(square)">render</button></td>
+				<td><button class="btn btn-danger" ng-click="squares.removeSquare(square)">remove</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<canvas id="c"></canvas>
+</div>
+<!-- <square-canvas data="squares"></square-canvas> -->
+<!-- <div ng-repeat="square in squares">
+	<square-canvas data="square"></square-canvas>
+</div> -->

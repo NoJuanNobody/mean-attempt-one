@@ -1,0 +1,24 @@
+<!-- xpos ypos fill width height -->
+<form action="" ng-controller="AddSquareCtrl as addSquare">
+	<div class="form-group">
+		<!-- <label for="xpos"></label> -->
+		<input type="text" id="xpos" ng-model="addSquare.newSquare.left" class="form-control" placeholder="x-coordinate">
+	</div>
+	<div class="form-group">
+		<!-- <label for="ypos"></label> -->
+		<input type="text" id="ypos" ng-model="addSquare.newSquare.top" class="form-control" placeholder="y-coordinate">
+	</div>
+	<div class="form-group">
+		<!-- <label for="fill"></label> -->
+		<input type="text" id="fill" ng-model="addSquare.newSquare.fill" class="form-control" placeholder="select a color">
+	</div>
+	<div class="form-group">
+		<!-- <label for="width"></label> -->
+		<input type="text" id="width" ng-model="addSquare.newSquare.width" class="form-control" placeholder="width">
+	</div>
+	<div class="form-group">
+		<!-- <label for="height"></label> -->
+		<input type="text" id="height" ng-model="addSquare.newSquare.height" class="form-control" placeholder="height">
+	</div>
+	<button class="btn btn-success" ng-Click="addSquare.save(addSquare.newSquare)">add square</button>
+</form>

@@ -2,6 +2,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var cors = require('cors');
 var _ = require('lodash');
 
 //create application
@@ -24,7 +25,7 @@ app.use(function(req, res, next){
 
 
 //connect to mongoDB
-mongoose.connect('mongodb://localhost/mean-app');
+mongoose.connect('mongodb://localhost/test');
 mongoose.connection.once('open', function(){
 
 // load all the models
